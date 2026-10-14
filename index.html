@@ -512,9 +512,8 @@ footer{
         <span class="ptag">AI</span>
         <span class="ptag">Data Analysis</span>
       </div>
-      <a class="project-link" href="https://health-risk-prediction-org.streamlit.app/" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+      <a class="project-link" data-project="health" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
     </div>
-
     <div class="project-card">
       <span class="project-tag">Data Visualization</span>
       <div class="project-title">Global Fuel Analysis System</div>
@@ -524,29 +523,53 @@ footer{
         <span class="ptag">Data Viz</span>
         <span class="ptag">Analytics</span>
       </div>
-      <a class="project-link" href="https://globalfuelanalysis-sst-org.streamlit.app/" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+      <a class="project-link" data-project="fuel" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
     </div>
-
     <div class="project-card">
-      <span class="project-tag">Web Design</span>
-      <div class="project-title">Web Design &amp; Dev Projects</div>
-      <p class="project-desc">Multiple personal and practice-based web design projects using HTML, CSS, and JavaScript. Focused on responsive layouts, UI/UX principles, and modern design aesthetics.</p>
+      <span class="project-tag">Data Analytics</span>
+      <div class="project-title">Company Data Analytics Dashboard</div>
+      <p class="project-desc">An interactive dashboard that turns company data into clear charts and key metrics, helping users explore trends and make quicker decisions.</p>
       <div class="project-tags">
-        <span class="ptag">HTML</span>
-        <span class="ptag">CSS</span>
-        <span class="ptag">JavaScript</span>
+        <span class="ptag">Python</span>
+        <span class="ptag">Streamlit</span>
+        <span class="ptag">Dashboard</span>
+        <span class="ptag">Analytics</span>
       </div>
+      <a class="project-link" data-project="company" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
     </div>
-
     <div class="project-card">
-      <span class="project-tag">Creative / Media</span>
-      <div class="project-title">Graphic Design &amp; Video Editing</div>
-      <p class="project-desc">Created promotional content, short videos, reels, and social media assets using Adobe tools and AI-assisted design techniques for personal and freelance clients.</p>
+      <span class="project-tag">AI / Strategy</span>
+      <div class="project-title">Ledger Strategy Console</div>
+      <p class="project-desc">A strategy console that analyses ledger data and helps plan next steps through an easy-to-use interactive interface.</p>
       <div class="project-tags">
-        <span class="ptag">Adobe</span>
-        <span class="ptag">Video Editing</span>
-        <span class="ptag">Social Media</span>
+        <span class="ptag">Python</span>
+        <span class="ptag">Streamlit</span>
+        <span class="ptag">AI</span>
+        <span class="ptag">Strategy</span>
       </div>
+      <a class="project-link" data-project="ledger" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+    </div>
+    <div class="project-card">
+      <span class="project-tag">AI Agent</span>
+      <div class="project-title">Pulse Daily Ops Agent</div>
+      <p class="project-desc">An AI agent that supports daily operations by summarising activity and surfacing the tasks that need attention.</p>
+      <div class="project-tags">
+        <span class="ptag">Python</span>
+        <span class="ptag">AI Agent</span>
+        <span class="ptag">Automation</span>
+      </div>
+      <a class="project-link" data-project="pulse" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+    </div>
+    <div class="project-card">
+      <span class="project-tag">AI Agent</span>
+      <div class="project-title">Customer Support Agent</div>
+      <p class="project-desc">An AI-powered customer agent that understands user queries and responds helpfully, built as part of Track 1.</p>
+      <div class="project-tags">
+        <span class="ptag">Python</span>
+        <span class="ptag">AI Agent</span>
+        <span class="ptag">Streamlit</span>
+      </div>
+      <a class="project-link" data-project="track1" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
     </div>
   </div>
 </section>
@@ -605,6 +628,20 @@ footer{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ─── PROJECT LINKS ───
+const PROJECT_LINKS = {
+  health:  'https://health-risk-prediction-org.streamlit.app/',
+  fuel:    'https://globalfuelanalysis-sst-org.streamlit.app/',
+  company: 'https://company-data-analytics.streamlit.app/',
+  ledger:  'https://ledger-strategy-console.streamlit.app/',
+  pulse:   'https://pulse-daily-ops.streamlit.app/',
+  track1:  'https://tiwarisundar-track-1--track1-customer-agent-kfbswr.streamlit.app/'
+};
+document.querySelectorAll('.project-link').forEach(a => {
+  const url = PROJECT_LINKS[a.dataset.project];
+  if (url) { a.href = url; } else { a.style.display = 'none'; }
+});
 
 // ─── THREE.JS 3D BACKGROUND ───
 (function(){
